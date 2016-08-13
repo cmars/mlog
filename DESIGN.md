@@ -16,6 +16,8 @@ Both commands support attaching files with a flag:
 Files may be attached with a logical name (local to the page) or not. These
 files are appended to the page content when $EDITOR is opened.
 
+Files may be URLs.
+
 ## Search & Administration Commands
 
     mlog list        # list pages
@@ -81,7 +83,16 @@ An Mlog consists of:
         mimeType: String,
     }
 
-# Page contents
+# Package dependencies
+
+Packages will be vendored with git subtree. Reusable components will be spun
+off into reusable separate upstreams.
+
+## Storage
+
+[Noms](github.com/attic-labs/noms/go) of course.
+
+## Page contents
 
 [Blackfriday](github.com/russross/blackfriday) is used to render markdown.
 [Options.ReferenceOverride](https://godoc.org/github.com/russross/blackfriday#Options) is
@@ -89,7 +100,6 @@ set up to resolve attachments.
 
 HTML output is then filtered by [bluemonday](https://github.com/microcosm-cc/bluemonday).
 
-# Command line
+## Command line
 
-Using gopkg.in/urfave/cli.v1 for now.
-
+gopkg.in/urfave/cli.v1
