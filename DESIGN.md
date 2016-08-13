@@ -55,6 +55,7 @@ An Mlog consists of:
 - An index of pages by IDs and aliases.
 - A map of tag names to page refs
 
+```
     struct Mlog {
         header: String,
         footer: String,
@@ -62,26 +63,31 @@ An Mlog consists of:
         index: Map<String, struct Page>,
         tags: Map<String, List<struct Page>>,
     }
+```
 
 ## Page
 
 - Contents (markdown)
 - Attachments
  
+```
     struct Page {
         contents: String,
         attachments: Map<String, Attachment>,
     }
+```
 
 ## Attachment
 
 - Contents (binary blob)
 - MIME type
 
+```
     struct Attachment {
         contents: Blob,
         mimeType: String,
     }
+```
 
 # Package dependencies
 
